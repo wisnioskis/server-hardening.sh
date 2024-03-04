@@ -48,6 +48,16 @@ ufw allow out 80/tcp
 ufw allow out 443/tcp
 ufw allow out 123/tcp
 ufw allow out 123/udp
+
+# Configure UFW to work with fail2ban
+echo "Configuring UFW to work with fail2ban..."
+sed -i '/# net/ a \
+# BEGIN F2B \
+-A INPUT -j f2b-sshd \
+-A FORWARD -j f2b-sshd \
+# END F2B' /etc/ufw/before.rules
+
+# Enable UFW
 ufw --force enable
 
 echo "Setup complete."
