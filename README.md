@@ -1,5 +1,3 @@
-# server-hardening.sh
-Shell script to harden servers quickly.
 ## Server Hardening Script
 
 This script automates the process of hardening your server by disabling password authentication via SSH, configuring fail2ban to protect against brute-force attacks, and setting up UFW (Uncomplicated Firewall) to allow only necessary connections.
